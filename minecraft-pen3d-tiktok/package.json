@@ -1,0 +1,17 @@
+{
+  "name": "minecraft-pen3d-tiktok",
+  "private": true,
+  "scripts": {
+    "studio": "remotion studio",
+    "render": "remotion render MinecraftPen3D out/minecraft-pen3d-tiktok.mp4"
+  },
+  "dependencies": {
+    "@remotion/cli": "^4.0.530",
+    "@remotion/fonts": "^4.0.530",
+    "@types/react": "^19.3.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "remotion": "^4.0.530",
+    "typescript": "^7.0.2"
+  }
+}
