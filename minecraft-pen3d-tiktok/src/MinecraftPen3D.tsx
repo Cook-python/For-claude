@@ -221,12 +221,12 @@ const Badge: React.FC<{text: string; delay: number; color: string}> = ({text, de
     <div
       style={{
         fontFamily: dela,
-        fontSize: 58,
+        fontSize: 50,
         color: '#fff',
         background: color,
         border: '6px solid #000',
         boxShadow: '0 10px 0 #000',
-        padding: '16px 34px',
+        padding: '12px 30px',
         transform: `scale(${s})`,
         opacity: Math.min(1, s * 2),
       }}
@@ -240,7 +240,8 @@ const EndCard: React.FC = () => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
   const logo = spring({frame, fps, config: {damping: 9, stiffness: 160}});
-  const cta = spring({frame: frame - 34, fps, config: {damping: 10, stiffness: 200}});
+  const link = spring({frame: frame - 28, fps, config: {damping: 12, stiffness: 200}});
+  const cta = spring({frame: frame - 36, fps, config: {damping: 10, stiffness: 200}});
   const pulse = 1 + 0.05 * Math.sin((frame / 15) * Math.PI * 2);
   const last = staticFile(`pan/${String(clips.pan - 1).padStart(4, '0')}.jpg`);
   return (
@@ -257,7 +258,7 @@ const EndCard: React.FC = () => {
         }}
       />
       <AbsoluteFill style={{background: 'radial-gradient(circle at 50% 40%, rgba(0,0,0,0) 0%, rgba(0,0,0,0.55) 75%)'}} />
-      <div style={{position: 'absolute', top: 290, width: '100%', textAlign: 'center'}}>
+      <div style={{position: 'absolute', top: 250, width: '100%', textAlign: 'center'}}>
         <div
           style={{
             fontFamily: dot,
@@ -302,12 +303,12 @@ const EndCard: React.FC = () => {
       <div
         style={{
           position: 'absolute',
-          top: 860,
+          top: 755,
           width: '100%',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          gap: 34,
+          gap: 26,
         }}
       >
         <Badge text="マルチプレイ対応" delay={10} color="#3c8d2f" />
@@ -317,7 +318,47 @@ const EndCard: React.FC = () => {
       <div
         style={{
           position: 'absolute',
-          top: 1420,
+          top: 1195,
+          width: '100%',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          opacity: link,
+          transform: `translateY(${(1 - link) * 40}px)`,
+        }}
+      >
+        <div
+          style={{
+            fontFamily: dela,
+            fontSize: 40,
+            color: '#000',
+            background: '#fff',
+            border: '5px solid #000',
+            padding: '4px 24px',
+            marginBottom: -6,
+            zIndex: 1,
+          }}
+        >
+          作品リンク
+        </div>
+        <div
+          style={{
+            fontFamily: dot,
+            fontSize: 44,
+            color: '#fff',
+            background: 'rgba(0,0,0,0.8)',
+            border: '5px solid #fff',
+            padding: '18px 30px 14px',
+            whiteSpace: 'nowrap',
+          }}
+        >
+          scratch.mit.edu/projects/1385461739
+        </div>
+      </div>
+      <div
+        style={{
+          position: 'absolute',
+          top: 1395,
           width: '100%',
           display: 'flex',
           justifyContent: 'center',
